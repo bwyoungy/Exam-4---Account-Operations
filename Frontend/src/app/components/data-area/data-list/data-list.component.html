@@ -3,6 +3,8 @@
     <input type="number" name="account" [(ngModel)]="accountNumber"/>
     <br>
     <button (click)="display()">Display account operations</button>
+    <br>
+    <br>
 
     <div *ngIf="operations?.length === 0">
         <h3>No operations found for this account</h3>
