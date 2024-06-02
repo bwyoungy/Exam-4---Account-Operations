@@ -1,25 +1,30 @@
 <div>
     <form (ngSubmit)="send()">
-        <label>Account Number</label>
+        <label>Account Number </label>
         <input type="number" name="accountNumber" [(ngModel)]="operation.accountNumber">
-        
+
+        <br>
         <label>Type</label>
         <select name="type" [(ngModel)]="operation.type">
             <option disabled selected>Select type...</option>
             <option *ngFor="let t of types" [value]="t">{{t}}</option>
         </select>
 
+        <br>
         <label>Sum</label>
         <input type="number" name="sum" [(ngModel)]="operation.sum">
 
+        <br>
         <div *ngIf="operation.type==='loan'">
             <label>Payments</label>
             <input type="number" name="payments" [(ngModel)]="operation.payments">
             
+            <br>
             <label>Interest</label>
             <input type="number" name="interest" [(ngModel)]="operation.interest">
         </div>
 
+        <br>
         <button>Add</button>
     </form>
 </div>
