@@ -1,1 +1,25 @@
-<p>add-data works!</p>
+<div>
+    <form (ngSubmit)="send()">
+        <label>Account Number</label>
+        <input type="number" name="accountNumber" [(ngModel)]="operation.accountNumber">
+        
+        <label>Type</label>
+        <select name="type" [(ngModel)]="operation.type">
+            <option disabled selected>Select type...</option>
+            <option *ngFor="let t of types" [value]="t">{{t}}</option>
+        </select>
+
+        <label>Sum</label>
+        <input type="number" name="sum" [(ngModel)]="operation.sum">
+
+        <div *ngIf="operation.type==='loan'">
+            <label>Payments</label>
+            <input type="number" name="payments" [(ngModel)]="operation.payments">
+            
+            <label>Interest</label>
+            <input type="number" name="interest" [(ngModel)]="operation.interest">
+        </div>
+
+        <button>Add</button>
+    </form>
+</div>
