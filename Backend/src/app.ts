@@ -1,13 +1,10 @@
 import cors from "cors";
 import express from "express";
-import expressFileUpload from "express-fileupload";
-import path from "path";
-import { fileSaver } from "uploaded-file-saver";
-import { appConfig } from "./2-utils/app-config";
-import { errorsMiddleware } from "./4-middleware/errors-middleware";
-import { loggerMiddleware } from "./4-middleware/logger-middleware";
-import { dataRouter } from "./6-controllers/data-controller";
-import { dal } from "./2-utils/dal";
+import { loggerMiddleware } from "./middleware/logger-middleware";
+import { dataRouter } from "./controllers/data-controller";
+import { errorsMiddleware } from "./middleware/errors-middleware";
+import { dal } from "./utils/dal";
+import { appConfig } from "./utils/app-config";
 
 // Main application class:
 class App {
@@ -23,12 +20,6 @@ class App {
 
         // Create a request.body containing the given json from the front:
         this.server.use(express.json());
-
-        // Create request.files containing uploaded files: 
-        this.server.use(expressFileUpload());
-
-        // Configure images folder: 
-        fileSaver.config(path.join(__dirname, "1-assets", "images"));
 
         // Register middleware:
         this.server.use(loggerMiddleware.logToConsole);
