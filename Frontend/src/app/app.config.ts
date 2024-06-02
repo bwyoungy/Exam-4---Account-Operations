@@ -5,5 +5,5 @@ import { routes } from './app.routes';
 export const appConfig = {
     providers: [provideRouter(routes), provideHttpClient()],
     
-    backendUrl: "http://localhost:4000/api/____"
+    operationsUrl: "http://localhost:4000/api/accountOperations/"
 };

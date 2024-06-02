@@ -7,7 +7,7 @@ import { Page404Component } from './components/layout-area/page404/page404.compo
 export const routes: Routes = [
     { path: "home", component: HomeComponent },
     { path: "list", component: DataListComponent },
-    { path: "new", component: AddDataComponent },
+    { path: "add", component: AddDataComponent },
     { path: "", redirectTo: "/home", pathMatch: "full" },
     { path: "**", component: Page404Component },
 ];
